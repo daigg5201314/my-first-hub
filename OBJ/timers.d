@@ -1,0 +1,15 @@
+..\obj\timers.o: ..\Source\timers.c
+..\obj\timers.o: D:\Keil_v5\ARM\Compiler_5.06u7\Bin\..\include\stdlib.h
+..\obj\timers.o: ..\Source\include\FreeRTOS.h
+..\obj\timers.o: D:\Keil_v5\ARM\Compiler_5.06u7\Bin\..\include\stddef.h
+..\obj\timers.o: D:\Keil_v5\ARM\Compiler_5.06u7\Bin\..\include\stdint.h
+..\obj\timers.o: ..\CORTEX_STM32F103_Keil\FreeRTOSConfig.h
+..\obj\timers.o: ..\Source\include\projdefs.h
+..\obj\timers.o: ..\Source\include\portable.h
+..\obj\timers.o: ..\Source\include\deprecated_definitions.h
+..\obj\timers.o: ..\Source\portable\RVDS\ARM_CM3\portmacro.h
+..\obj\timers.o: ..\Source\include\mpu_wrappers.h
+..\obj\timers.o: ..\Source\include\task.h
+..\obj\timers.o: ..\Source\include\list.h
+..\obj\timers.o: ..\Source\include\queue.h
+..\obj\timers.o: ..\Source\include\timers.h

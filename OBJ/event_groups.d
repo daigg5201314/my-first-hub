@@ -1,0 +1,15 @@
+..\obj\event_groups.o: ..\Source\event_groups.c
+..\obj\event_groups.o: D:\Keil_v5\ARM\Compiler_5.06u7\Bin\..\include\stdlib.h
+..\obj\event_groups.o: ..\Source\include\FreeRTOS.h
+..\obj\event_groups.o: D:\Keil_v5\ARM\Compiler_5.06u7\Bin\..\include\stddef.h
+..\obj\event_groups.o: D:\Keil_v5\ARM\Compiler_5.06u7\Bin\..\include\stdint.h
+..\obj\event_groups.o: ..\CORTEX_STM32F103_Keil\FreeRTOSConfig.h
+..\obj\event_groups.o: ..\Source\include\projdefs.h
+..\obj\event_groups.o: ..\Source\include\portable.h
+..\obj\event_groups.o: ..\Source\include\deprecated_definitions.h
+..\obj\event_groups.o: ..\Source\portable\RVDS\ARM_CM3\portmacro.h
+..\obj\event_groups.o: ..\Source\include\mpu_wrappers.h
+..\obj\event_groups.o: ..\Source\include\task.h
+..\obj\event_groups.o: ..\Source\include\list.h
+..\obj\event_groups.o: ..\Source\include\timers.h
+..\obj\event_groups.o: ..\Source\include\event_groups.h

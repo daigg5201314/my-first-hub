@@ -1,0 +1,14 @@
+..\obj\croutine.o: ..\Source\croutine.c
+..\obj\croutine.o: ..\Source\include\FreeRTOS.h
+..\obj\croutine.o: D:\Keil_v5\ARM\Compiler_5.06u7\Bin\..\include\stddef.h
+..\obj\croutine.o: D:\Keil_v5\ARM\Compiler_5.06u7\Bin\..\include\stdint.h
+..\obj\croutine.o: ..\CORTEX_STM32F103_Keil\FreeRTOSConfig.h
+..\obj\croutine.o: ..\Source\include\projdefs.h
+..\obj\croutine.o: ..\Source\include\portable.h
+..\obj\croutine.o: ..\Source\include\deprecated_definitions.h
+..\obj\croutine.o: ..\Source\portable\RVDS\ARM_CM3\portmacro.h
+..\obj\croutine.o: ..\Source\include\mpu_wrappers.h
+..\obj\croutine.o: ..\Source\include\task.h
+..\obj\croutine.o: ..\Source\include\list.h
+..\obj\croutine.o: ..\Source\include\croutine.h
+..\obj\croutine.o: ..\Source\include\list.h
