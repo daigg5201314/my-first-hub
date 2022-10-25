@@ -9,6 +9,7 @@
 "..\obj\stm32f10x_gpio.o"
 "..\obj\stm32f10x_rcc.o"
 "..\obj\stm32f10x_usart.o"
+"..\obj\stm32f10x_exti.o"
 "..\obj\delay.o"
 "..\obj\sys.o"
 "..\obj\usart.o"
@@ -20,6 +21,8 @@
 "..\obj\timers.o"
 "..\obj\heap_4.o"
 "..\obj\port.o"
+"..\obj\uart.o"
+"..\obj\gpio.o"
 --strict --scatter "..\OBJ\main.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

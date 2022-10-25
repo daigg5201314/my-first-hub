@@ -1,38 +1,36 @@
-#ifndef __USART_H
-#define __USART_H
-#include "stdio.h"	
-#include "sys.h" 
-//////////////////////////////////////////////////////////////////////////////////	 
-//±¾³ÌÐòÖ»¹©Ñ§Ï°Ê¹ÓÃ£¬Î´¾­×÷ÕßÐí¿É£¬²»µÃÓÃÓÚÆäËüÈÎºÎÓÃÍ¾
-//ALIENTEK STM32¿ª·¢°å
-//´®¿Ú1³õÊ¼»¯		   
-//ÕýµãÔ­×Ó@ALIENTEK
-//¼¼ÊõÂÛÌ³:www.openedv.com
-//ÐÞ¸ÄÈÕÆÚ:2012/8/18
-//°æ±¾£ºV1.5
-//°æÈ¨ËùÓÐ£¬µÁ°æ±Ø¾¿¡£
-//Copyright(C) ¹ãÖÝÊÐÐÇÒíµç×Ó¿Æ¼¼ÓÐÏÞ¹«Ë¾ 2009-2019
-//All rights reserved
-//********************************************************************************
-//V1.3ÐÞ¸ÄËµÃ÷ 
-//Ö§³ÖÊÊÓ¦²»Í¬ÆµÂÊÏÂµÄ´®¿Ú²¨ÌØÂÊÉèÖÃ.
-//¼ÓÈëÁË¶ÔprintfµÄÖ§³Ö
-//Ôö¼ÓÁË´®¿Ú½ÓÊÕÃüÁî¹¦ÄÜ.
-//ÐÞÕýÁËprintfµÚÒ»¸ö×Ö·û¶ªÊ§µÄbug
-//V1.4ÐÞ¸ÄËµÃ÷
-//1,ÐÞ¸Ä´®¿Ú³õÊ¼»¯IOµÄbug
-//2,ÐÞ¸ÄÁËUSART_RX_STA,Ê¹µÃ´®¿Ú×î´ó½ÓÊÕ×Ö½ÚÊýÎª2µÄ14´Î·½
-//3,Ôö¼ÓÁËUSART_REC_LEN,ÓÃÓÚ¶¨Òå´®¿Ú×î´óÔÊÐí½ÓÊÕµÄ×Ö½ÚÊý(²»´óÓÚ2µÄ14´Î·½)
-//4,ÐÞ¸ÄÁËEN_USART1_RXµÄÊ¹ÄÜ·½Ê½
-//V1.5ÐÞ¸ÄËµÃ÷
-//1,Ôö¼ÓÁË¶ÔUCOSIIµÄÖ§³Ö
-#define USART_REC_LEN  			200  	//¶¨Òå×î´ó½ÓÊÕ×Ö½ÚÊý 200
-#define EN_USART1_RX 			1		//Ê¹ÄÜ£¨1£©/½ûÖ¹£¨0£©´®¿Ú1½ÓÊÕ
-	  	
-extern u8  USART_RX_BUF[USART_REC_LEN]; //½ÓÊÕ»º³å,×î´óUSART_REC_LEN¸ö×Ö½Ú.Ä©×Ö½ÚÎª»»ÐÐ·û 
-extern u16 USART_RX_STA;         		//½ÓÊÕ×´Ì¬±ê¼Ç	
-//Èç¹ûÏë´®¿ÚÖÐ¶Ï½ÓÊÕ£¬Çë²»Òª×¢ÊÍÒÔÏÂºê¶¨Òå
+/*
+ * Project: 1.LED
+ * Module: ä¸²å£æ”¶å‘æ¨¡å—
+ * File: usart.h
+ * Created Date: 2022-10-25 16:23:38
+ * Author: å ¡çƒ¨
+ * Description: ä¸²å£æ”¶å‘æ¨¡å—
+ * -----
+ * todo: modified
+ * -----
+ * Copyright (c) 2022 - vDiscovery, Inc
+ */
+#ifndef USART_H
+#define USART_H
+
+/* ======================================================================================
+ * includes(å¤´æ–‡ä»¶åŒ…å«)
+ */
+#include "stdio.h"
+#include "sys.h"
+/* ======================================================================================
+ * macros(å®æŒ‡ä»¤)
+ */
+#define USART_REC_LEN 200 //å®šä¹‰æŽ¥æ”¶æœ€å¤§å­—èŠ‚æ•° 200
+#define EN_USART1_RX 1    // 1ï¼šä½¿èƒ½ï¼Œ0ï¼šç¦æ­¢ä½¿èƒ½
+/* ======================================================================================
+ * types(å˜é‡ç±»åž‹)
+ */
+extern u8 USART_RX_BUF[USART_REC_LEN]; //æŽ¥æ”¶ç¼“å†²ï¼Œæœ€å¤§ä¸ºUSART_REC_LENä¸ªå­—èŠ‚
+extern u16 USART_RX_STA;               //æŽ¥æ”¶çŠ¶æ€æ ‡è®°
+/* ======================================================================================
+ * declaration(å‡½æ•°å£°æ˜Ž)
+ */
+
 void uart_init(u32 bound);
-#endif
-
-
+#endif // _USART_H

@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>STM32F10X_MD,USE_STDPERIPH_DRIVER</Define>
               <Undefine></Undefine>
-              <IncludePath>..\USER;..\CORE;..\STM32_FWLIB\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\MyCode\led;..\Source\portable\RVDS\ARM_CM3;..\Source\include;..\CORTEX_STM32F103_Keil\STM32F10xFWLib\inc;..\CORTEX_STM32F103_Keil\STM32F10xFWLib\src;..\CORTEX_STM32F103_Keil;..\CONF</IncludePath>
+              <IncludePath>..\USER;..\CORE;..\STM32_FWLIB\inc;..\SYSTEM\delay;..\SYSTEM\sys;..\SYSTEM\usart;..\MyCode\led;..\Source\portable\RVDS\ARM_CM3;..\Source\include;..\CORTEX_STM32F103_Keil\STM32F10xFWLib\inc;..\CORTEX_STM32F103_Keil\STM32F10xFWLib\src;..\CORTEX_STM32F103_Keil;..\CONF;..\driver;..\CORTEX_STM32F103_Keil\STM32F10xFWLib\src</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -449,6 +449,11 @@
               <FileType>1</FileType>
               <FilePath>..\STM32_FWLIB\src\stm32f10x_usart.c</FilePath>
             </File>
+            <File>
+              <FileName>stm32f10x_exti.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\STM32_FWLIB\src\stm32f10x_exti.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -533,6 +538,21 @@
               <FileName>platform_config.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\CONF\platform_config.h</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>driver</GroupName>
+          <Files>
+            <File>
+              <FileName>uart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\driver\uart\uart.c</FilePath>
+            </File>
+            <File>
+              <FileName>gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\driver\gpio\gpio.c</FilePath>
             </File>
           </Files>
         </Group>

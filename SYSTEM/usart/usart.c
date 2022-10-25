@@ -1,10 +1,10 @@
 /*
  * Project: 1.LED
- * Module: ´®¿ÚÊÕ·¢Ä£¿é
+ * Module: ï¿½ï¿½ï¿½ï¿½ï¿½Õ·ï¿½Ä£ï¿½ï¿½
  * File: usart.c
  * Created Date: 2022-10-24 20:49:47
- * Author: ±¤ìÇ
- * Description: ´®¿ÚÊÕ·¢Ä£¿é
+ * Author: ï¿½ï¿½ï¿½ï¿½
+ * Description: ï¿½ï¿½ï¿½ï¿½ï¿½Õ·ï¿½Ä£ï¿½ï¿½
  * -----
  * todo: modified
  * -----
@@ -12,141 +12,141 @@
  */
 
 /* ======================================================================================
- * log(ÈÕÖ¾Ä£¿é)
+ * log(ï¿½ï¿½Ö¾Ä£ï¿½ï¿½)
  */
 #define LOG_ENABLE_DEBUG (1)
 
 /* ======================================================================================
- * includes(Í·ÎÄ¼þ°üº¬)
+ * includes(Í·ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½)
  */
 #include "usart.h"
 #if SYSTEM_SUPPORT_UCOS
 #include "includes.h" //ucos
 #endif
 /* ======================================================================================
- * macros(ºêÖ¸Áî)
+ * macros(ï¿½ï¿½Ö¸ï¿½ï¿½)
  */
 
 /* ======================================================================================
- * types(±äÁ¿ÀàÐÍ)
+ * types(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
  */
-#if EN_USART1_RX				//Ê¹ÓÃ´®¿Ú½ÓÊÕÊ¹ÄÜ
-u8 USART_RX_BUF[USART_REC_LEN]; //½ÓÊÜ»º³å£¬×î´óUSART_REC_LEN¸ö×Ö½Ú
-u16 USART_RX_STA = 0;			//½ÓÊÜ×´Ì¬±ê¼Ç
+#if EN_USART1_RX				//Ê¹ï¿½Ã´ï¿½ï¿½Ú½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
+u8 USART_RX_BUF[USART_REC_LEN]; //ï¿½ï¿½ï¿½Õ»ï¿½ï¿½å£¬ï¿½ï¿½ï¿½USART_REC_LENï¿½ï¿½ï¿½Ö½ï¿½
+u16 USART_RX_STA = 0;			//ï¿½ï¿½ï¿½ï¿½×´Ì¬ï¿½ï¿½ï¿½
 #endif
 /* ======================================================================================
- * declaration(º¯ÊýÉùÃ÷)
+ * declaration(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
  */
 
 /* ======================================================================================
- * globals(È«¾Öº¯Êý/±äÁ¿)
+ * globals(È«ï¿½Öºï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½)
  */
 
 /* ======================================================================================
- * helper(°ïÖúº¯Êý)
+ * helper(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
  */
 #if 1
 #pragma import(__use_no_semihosting)
-//±ê×¼¿âÐèÒªµÄÖ§³Öº¯Êý
+//ï¿½ï¿½×¼ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½Ö§ï¿½Öºï¿½ï¿½ï¿½
 struct __FILE
 {
 	int handle;
 };
 
 FILE __stdout;
-//¶¨Òå_sys_exit()ÒÑ±ÜÃâÊÇÓÃ°ëÖ÷»úÄ£Ê½
+//ï¿½ï¿½ï¿½ï¿½_sys_exit()ï¿½Ñ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½Ä£Ê½
 _sys_exit(int x)
 {
 	x = x;
 }
-//ÖØ¶¨Òåfputcº¯Êý
+//ï¿½Ø¶ï¿½ï¿½ï¿½fputcï¿½ï¿½ï¿½ï¿½
 int fputc(int ch, FILE *f)
 {
 	while ((USART1->SR & 0X40) == 0)
-		; //Ñ­»··¢ËÍÖ±µ½·¢ËÍÍê±Ï
+		; //Ñ­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	USART1->DR = (u8)ch;
 	return ch;
 }
 #endif
 /* ======================================================================================
- * private implementation(ÄÚ²¿Ê¹ÓÃº¯Êý)
+ * private implementation(ï¿½Ú²ï¿½Ê¹ï¿½Ãºï¿½ï¿½ï¿½)
  */
 
 /* ======================================================================================
- * implementation(È«¾ÖÊ¹ÓÃº¯Êý)
+ * implementation(È«ï¿½ï¿½Ê¹ï¿½Ãºï¿½ï¿½ï¿½)
  */
 
-#if EN_USART1_RX //Ê¹ÓÃ´®¿Ú½ÓÊÕÊ¹ÄÜ
+#if EN_USART1_RX //Ê¹ï¿½Ã´ï¿½ï¿½Ú½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½
 /**
- * @brief :´®¿Ú³õÊ¼»¯º¯Êý
- * @param bound:´®¿Ú²¨ÌØÂÊ
+ * @brief :ï¿½ï¿½ï¿½Ú³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ * @param bound:ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ï¿½ï¿½ï¿½
  * @return :void
  */
 void uart_init(u32 bound)
 {
-	// GPIO¶Ë¿ÚÉèÖÃ
+	// GPIOï¿½Ë¿ï¿½ï¿½ï¿½ï¿½ï¿½
 	GPIO_InitTypeDef GPIO_InitStructure;
 	USART_InitTypeDef USART_InitStructure;
 	NVIC_InitTypeDef NVIC_InitStructure;
 
-	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE); //Ê¹ÄÜUSART1£¬GPIOAÊ±ÖÓ
+	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1 | RCC_APB2Periph_GPIOA, ENABLE); //Ê¹ï¿½ï¿½USART1ï¿½ï¿½GPIOAÊ±ï¿½ï¿½
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_9;									  // PA.9
 	GPIO_InitStructure.GPIO_Speed = GPIO_Speed_50MHz;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; //¸´ÓÃÍÆÍìÊä³ö
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AF_PP; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
 	// USART1_RX	  PA.10
 	GPIO_InitStructure.GPIO_Pin = GPIO_Pin_10;
-	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; //¸¡¿ÕÊäÈë
+	GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	GPIO_Init(GPIOA, &GPIO_InitStructure);
 
-	// Usart1 NVIC ÅäÖÃ
+	// Usart1 NVIC ï¿½ï¿½ï¿½ï¿½
 
 	NVIC_InitStructure.NVIC_IRQChannel = USART1_IRQn;
-	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3; //ÖÐ¶ÏÓÅÏÈ¼¶3
-	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;		  //×ÓÇÀÕ¼ÓÅÏÈ¼¶3
-	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;			  // IRQÖÐ¶ÏÊ¹ÄÜ
-	NVIC_Init(&NVIC_InitStructure);							  //³õÊ¼»¯NVIC
+	NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 3; //ï¿½Ð¶ï¿½ï¿½ï¿½ï¿½È¼ï¿½3
+	NVIC_InitStructure.NVIC_IRQChannelSubPriority = 3;		  //ï¿½ï¿½ï¿½ï¿½Õ¼ï¿½ï¿½ï¿½È¼ï¿½3
+	NVIC_InitStructure.NVIC_IRQChannelCmd = ENABLE;			  // IRQï¿½Ð¶ï¿½Ê¹ï¿½ï¿½
+	NVIC_Init(&NVIC_InitStructure);							  //ï¿½ï¿½Ê¼ï¿½ï¿½NVIC
 
 	// USART ?????????
 
-	USART_InitStructure.USART_BaudRate = bound;										//²¨ÌØÂÊÉèÖÃ
-	USART_InitStructure.USART_WordLength = USART_WordLength_8b;						//×Ö³¤Îª8Î»µÄÊý¾Ý¸ñÊ½
-	USART_InitStructure.USART_StopBits = USART_StopBits_1;							//ÉèÖÃÍ£Ö¹Î»
-	USART_InitStructure.USART_Parity = USART_Parity_No;								//ÎÞÆæÅ¼Ð£ÑéÎ»
-	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None; //ÎÞÓ²¼þÊý¾ÝÁ÷¿ØÖÆ
-	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;					//ÊÕ·¢Ä£Ê½
+	USART_InitStructure.USART_BaudRate = bound;										//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	USART_InitStructure.USART_WordLength = USART_WordLength_8b;						//ï¿½Ö³ï¿½Îª8Î»ï¿½ï¿½ï¿½ï¿½ï¿½Ý¸ï¿½Ê½
+	USART_InitStructure.USART_StopBits = USART_StopBits_1;							//ï¿½ï¿½ï¿½ï¿½Í£Ö¹Î»
+	USART_InitStructure.USART_Parity = USART_Parity_No;								//ï¿½ï¿½ï¿½ï¿½Å¼Ð£ï¿½ï¿½Î»
+	USART_InitStructure.USART_HardwareFlowControl = USART_HardwareFlowControl_None; //ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	USART_InitStructure.USART_Mode = USART_Mode_Rx | USART_Mode_Tx;					//ï¿½Õ·ï¿½Ä£Ê½
 
-	USART_Init(USART1, &USART_InitStructure);	   //³õÊ¼»¯´®¿Ú
-	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE); //¿ªÆôÖÐ¶Ï
-	USART_Cmd(USART1, ENABLE);					   //Ê¹ÄÜ´®¿Ú
+	USART_Init(USART1, &USART_InitStructure);	   //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	USART_ITConfig(USART1, USART_IT_RXNE, ENABLE); //ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½
+	USART_Cmd(USART1, ENABLE);					   //Ê¹ï¿½Ü´ï¿½ï¿½ï¿½
 }
 
 /**
- * @brief :´®¿Ú1ÖÐ¶Ï
+ * @brief :ï¿½ï¿½ï¿½ï¿½1ï¿½Ð¶ï¿½
  * @param :void
  * @return :void
  */
-void USART1_IRQHandler(void) //????1?§Ø???????
+void USART1_IRQHandler(void) //ï¿½ï¿½ï¿½ï¿½1ï¿½Ð¶Ïºï¿½ï¿½ï¿½
 {
 	u8 Res;
-#ifdef OS_TICKS_PER_SEC //?????????????????,???????ucosII??.
+#ifdef OS_TICKS_PER_SEC //Ê¹ï¿½ï¿½ucosll
 	OSIntEnter();
 #endif
-	if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) //?????§Ø?(????????????????0x0d 0x0a??¦Â)
+	if (USART_GetITStatus(USART1, USART_IT_RXNE) != RESET) //ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý±ï¿½ï¿½ï¿½ï¿½ï¿½0x0d 0x0aï¿½ï¿½Î²)
 	{
-		Res = USART_ReceiveData(USART1); //(USART1->DR);	//??????????????
+		Res = USART_ReceiveData(USART1); //(USART1->DR);	//ï¿½ï¿½È¡ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-		if ((USART_RX_STA & 0x8000) == 0) //????¦Ä???
+		if ((USART_RX_STA & 0x8000) == 0) //ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½ï¿½
 		{
-			if (USART_RX_STA & 0x4000) //???????0x0d
+			if (USART_RX_STA & 0x4000) //ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½0x0d
 			{
 				if (Res != 0x0a)
-					USART_RX_STA = 0; //???????,??????
+					USART_RX_STA = 0; //ï¿½ï¿½ï¿½Õ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½Ê¼
 				else
-					USART_RX_STA |= 0x8000; //?????????
+					USART_RX_STA |= 0x8000; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
-			else //??????0X0D
+			else //ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Õµï¿½0X0D
 			{
 				if (Res == 0x0d)
 					USART_RX_STA |= 0x4000;
@@ -155,12 +155,12 @@ void USART1_IRQHandler(void) //????1?§Ø???????
 					USART_RX_BUF[USART_RX_STA & 0X3FFF] = Res;
 					USART_RX_STA++;
 					if (USART_RX_STA > (USART_REC_LEN - 1))
-						USART_RX_STA = 0; //???????????,??????????
+						USART_RX_STA = 0; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
 				}
 			}
 		}
 	}
-#ifdef OS_TICKS_PER_SEC //?????????????????,???????ucosII??.
+#ifdef OS_TICKS_PER_SEC //Ê¹ï¿½ï¿½ucosll.
 	OSIntExit();
 #endif
 }

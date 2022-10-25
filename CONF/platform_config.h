@@ -1,4 +1,9 @@
 /*
+ * @Author: 戴堡烨 邮箱:3511487450@qq.com
+ * @Date: 2022-10-24 14:02:15
+ * @LastEditors: 戴堡烨 邮箱:3511487450@qq.com
+ */
+/*
  * Project: 1.LED
  * Module: 系统配置
  * File: platform_config.h
@@ -33,6 +38,13 @@
 #define LED1_TASK_PRIO 3
 //任务堆栈大小
 #define LED1_STK_SIZE 50
+
+// 1.2 Uart 配置
+#define PLATFORM_UART_EN ON
+#define PLATFORM_UART1_EN ON
+#define UART1_PIN 3
+#define PLATFORM_UART2_EN OFF
+#define PLATFORM_UART3_EN OFF
 /* ======================================================================================
  * types(变量类型)
  */

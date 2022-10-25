@@ -1,4 +1,6 @@
 ..\obj\usart.o: ..\SYSTEM\usart\usart.c
+..\obj\usart.o: ..\SYSTEM\usart\usart.h
+..\obj\usart.o: D:\Keil_v5\ARM\Compiler_5.06u7\Bin\..\include\stdio.h
 ..\obj\usart.o: ..\SYSTEM\sys\sys.h
 ..\obj\usart.o: ..\USER\stm32f10x.h
 ..\obj\usart.o: ..\CORE\core_cm3.h
@@ -10,5 +12,3 @@
 ..\obj\usart.o: ..\STM32_FWLIB\inc\stm32f10x_rcc.h
 ..\obj\usart.o: ..\STM32_FWLIB\inc\stm32f10x_usart.h
 ..\obj\usart.o: ..\STM32_FWLIB\inc\misc.h
-..\obj\usart.o: ..\SYSTEM\usart\usart.h
-..\obj\usart.o: D:\Keil_v5\ARM\Compiler_5.06u7\Bin\..\include\stdio.h
