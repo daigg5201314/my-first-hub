@@ -57,7 +57,7 @@
 void user_gpio_init(user_gpio_t gpio)
 {
     GPIO_InitTypeDef gpio_info;
-    RCC_APB2PeriphClockCmd(gpio.user_gpio_zone, true); //使能GPIO时钟
+    RCC_APB2PeriphClockCmd(gpio.user_gpio_zone, true); // 使能GPIO时钟
     gpio_info.GPIO_Pin = gpio.user_gpio_pin;
     gpio_info.GPIO_Speed = gpio.user_gpio_speed;
     gpio_info.GPIO_Mode = gpio.user_gpio_mode;
@@ -93,5 +93,6 @@ void EXTI0_IRQHandler(void)
     {
 
         EXTI_ClearITPendingBit(EXTI_Line0);
+        printf("111");
     }
 }
